@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px 0;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #007bff;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        .timeline-box {
+            padding: 15px 30px;
+            position: relative;
+            background: white;
+            width: 45%;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            list-style: none;
+        }
+        .timeline-box li{
+            list-style-type: none;
+        }
+        .timeline-box.left {
+            left: 0;
+        }
+        .timeline-box.right {
+            left: 55%;
+        }
+        .timeline-box::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid #007bff;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .right::after {
+            left: -10px;
+        }
+        .timeline-icon {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .timeline-box::before{
+            content: none;
+        }
+    </style>
+</head>
+
+<body>
+     <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="orplogo.jpeg">
+                </span>
+                <div class="text header-text">
+                    <span class="name">OrphanConnect</span>
+                </div>
+            </div>
+            <i class="fa fa-ellipsis-h toggle" style="color: black;"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu-m">
+                <li class="search-box">
+                    <i class="fa fa-search icons"></i>
+                    <input type="search" placeholder="Search...">
+                </li>
+                <div class="menu-links">
+                    <li class="nav-link">
+                        <a href="donatefood.html">
+                            <i class="fa fa-gift icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Donation</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="adoption.html">
+                            <i class="fa fa-child-reaching icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Adoption</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="orpdetails.html">
+                            <i class="fa fa-file-alt icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="orpcontact.html">
+                            <i class="fa fa-phone icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="initial.html">
+                            <i class="fa fa-sign-out icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Logout</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="home">
+        <div class="container ">
+            <h2 class="text-center mb-4">🏡 Our Journey & History</h2>
+            <div class="timeline">
+        
+                <div class="timeline-box left">
+                    <div class="timeline-icon"><i class="fas fa-seedling"></i></div>
+                    <h5>🌱 Foundation of the Orphanage</h5>
+                    <p><strong>2005</strong> - The orphanage was founded by <b>Mr. Sai Shikala kumar</b> with a mission to provide shelter and care for abandoned children.</p>
+                </div>
+        
+                <div class="timeline-box right">
+                    <div class="timeline-icon"><i class="fas fa-users"></i></div>
+                    <h5>🏠 First Children Welcomed</h5>
+                    <p><strong>2007</strong> - The first 15 children were given a safe home, with proper education and healthcare facilities.</p>
+                </div>
+        
+                <div class="timeline-box left">
+                    <div class="timeline-icon"><i class="fas fa-school"></i></div>
+                    <h5>📚 Education Program Launched</h5>
+                    <p><strong>2010</strong> - Partnered with local schools to ensure every child receives quality education.</p>
+                </div>
+        
+                <div class="timeline-box right">
+                    <div class="timeline-icon"><i class="fas fa-heart"></i></div>
+                    <h5>❤️ Healthcare & Nutrition Improvement</h5>
+                    <p><strong>2015</strong> - Medical camps and balanced meal plans were introduced for better child health.</p>
+                </div>
+        
+                <div class="timeline-box left">
+                    <div class="timeline-icon"><i class="fas fa-building"></i></div>
+                    <h5>🏗️ New Dormitory Built</h5>
+                    <p><strong>2018</strong> - A new residential block was built to accommodate more children with modern facilities.</p>
+                </div>
+        
+                <div class="timeline-box right">
+                    <div class="timeline-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h5>🤝 NGO & Government Support</h5>
+                    <p><strong>2020</strong> - Partnered with NGOs and local government to expand support and funding.</p>
+                </div>
+        
+                <div class="timeline-box left">
+                    <div class="timeline-icon"><i class="fas fa-globe"></i></div>
+                    <h5>🌍 Digital Adoption Platform</h5>
+                    <p><strong>April 2025</strong> - Launching an online adoption platform to connect children with loving families.</p>
+                </div>
+        
+            </div>
+        </div>
+    </section>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

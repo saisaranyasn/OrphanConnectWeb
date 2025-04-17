@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover Password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="ustyle.css">
+</head>
+
+<body>
+    <div class="ucontainer" id="signIn">
+        <h1 class="form-title">Recover Password</h1>
+        <form method="post" action="uforgot.php">
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="text" name="email" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="password" id="password" placeholder="New Password" required>
+                <label for="New password">New Password</label>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+                <label for="Confirm Password">Confirm Password</label>
+            </div>
+            <button type="submit" class="btn" value="recover" name="recover" onclick="">Change</button>
+            <br><br>
+            <p class="recover">
+                <a href="signIn.html">Go Back</a>
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>

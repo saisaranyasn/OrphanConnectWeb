@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoption</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="orplogo.jpeg">
+                </span>
+                <div class="text header-text">
+                    <span class="name">OrphanConnect</span>
+                </div>
+            </div>
+            <i class="fa fa-ellipsis-h toggle" style="color: black;"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu-m">
+                <li class="search-box">
+                    <i class="fa fa-search icons"></i>
+                    <input type="search" placeholder="Search...">
+                </li>
+                <div class="menu-links">
+                    <li class="nav-link">
+                        <a href="donatefood.html">
+                            <i class="fa fa-gift icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Donation</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="adoption.html">
+                            <i class="fa fa-child-reaching icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Adoption</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="orpdetails.html">
+                            <i class="fa fa-file-alt icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Details</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="orpcontact.html">
+                            <i class="fa fa-phone icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Contact</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="initial.html">
+                            <i class="fa fa-sign-out icons" style="font-size: 25px;"></i>
+                            <span class="text nav-text">&nbsp;&nbsp;Logout</span>
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="home">
+        <div class="container">
+            <h2 class="text-center">Children Available for Adoption</h2>
+
+            <!-- Child Cards (4 Per Row) -->
+            <div class="row" id="childrenCards"></div>
+        </div>
+
+        <div class="modal fade" id="adoptionModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+              <form id="adoptionForm" class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Adoption Request</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                  <input type="hidden" id="childName" name="child_name">
+                  <div class="mb-3">
+                    <label>Your Name</label>
+                    <input type="text" class="form-control" name="adopter_name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="adopter_email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label>Phone</label>
+                    <input type="text" class="form-control" name="adopter_phone" required>
+                  </div>
+                  <div class="mb-3">
+                    <label>Reason for Adoption</label>
+                    <textarea class="form-control" name="reason" required></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <script>
+            const children = [
+              { name: "Swetha", age: 6, joined: "Jan 2021", details: "Loves painting and music.", img: "child1.jpeg" },
+              { name: "Sathish", age: 8, joined: "Mar 2019", details: "Enjoys reading and storytelling.", img: "child2.jpg" },
+              { name: "Nithya", age: 5, joined: "Jul 2022", details: "Loves outdoor games.", img: "child3.jpg" },
+              { name: "Surya", age: 7, joined: "May 2020", details: "Enjoys singing and dancing.", img: "child4.jpeg" },
+              { name: "Rithik", age: 9, joined: "Feb 2018", details: "Interested in science experiments.", img: "child5.jpeg" },
+              { name: "Bob", age: 4, joined: "Nov 2023", details: "Friendly and loves drawing.", img: "child6.jpeg" },
+              { name: "Mathew", age: 10, joined: "Aug 2017", details: "Book lover and chess player.", img: "child7.jpeg" },
+              { name: "Ananya", age: 3, joined: "Dec 2023", details: "Loves soft toys and cartoons.", img: "child8.jpeg" }
+            ];
+          
+            const cardContainer = document.getElementById("childrenCards");
+          
+            children.forEach(child => {
+              const col = document.createElement("div");
+              col.className = "col-md-3 mb-4";
+              col.innerHTML = `
+                <div class="card h-100 shadow-sm">
+                  <img src="${child.img}" class="card-img-top" style="height: 300px; object-fit: cover;">
+                  <div class="card-body">
+                    <h5 class="card-title">${child.name}</h5>
+                    <p class="card-text"><strong>Age:</strong> ${child.age}<br>
+                      <strong>Joined:</strong> ${child.joined}<br>
+                      <strong>Details:</strong> ${child.details}
+                    </p>
+                    <button class="btn btn-primary w-100" onclick="openAdoptionModal('${child.name}')">Adopt</button>
+                  </div>
+                </div>`;
+              cardContainer.appendChild(col);
+            });
+          
+            function openAdoptionModal(childName) {
+              document.getElementById("childName").value = childName;
+              const modal = new bootstrap.Modal(document.getElementById("adoptionModal"));
+              modal.show();
+            }
+          
+            document.getElementById("adoptionForm").addEventListener("submit", function (e) {
+              e.preventDefault();
+              const formData = new FormData(this);
+              fetch("adoption.php", {
+                method: "POST",
+                body: new URLSearchParams(formData)
+              })
+                .then(res => res.text())
+                .then(data => {
+                  alert("Adoption request submitted!");
+                  document.getElementById("adoptionForm").reset();
+                  bootstrap.Modal.getInstance(document.getElementById("adoptionModal")).hide();
+                })
+                .catch(err => {
+                  alert("Failed to submit. Try again.");
+                  console.error(err);
+                });
+            });
+          </script>
+    </section>
+    <script src="main.js"></script>
+</body>
+
+</html>
